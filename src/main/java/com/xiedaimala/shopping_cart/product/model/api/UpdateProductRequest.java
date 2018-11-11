@@ -1,15 +1,15 @@
-package com.xiedaimala.shopping_cart.product.model;
+package com.xiedaimala.shopping_cart.product.model.api;
 
 public class UpdateProductRequest {
 
     private String name;
     private String description;
-    private long price;
+    private double price;
 
     public UpdateProductRequest() {
     }
 
-    public UpdateProductRequest(String name, String description, long price) {
+    public UpdateProductRequest(String name, String description, double price) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -31,11 +31,11 @@ public class UpdateProductRequest {
         this.description = description;
     }
 
-    public long getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

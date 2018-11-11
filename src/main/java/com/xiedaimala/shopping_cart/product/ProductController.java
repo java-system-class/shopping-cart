@@ -1,6 +1,7 @@
 package com.xiedaimala.shopping_cart.product;
 
 import com.xiedaimala.shopping_cart.product.model.*;
+import com.xiedaimala.shopping_cart.product.model.api.*;
 import com.xiedaimala.shopping_cart.product.validator.CreateProductRequestValidator;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,10 +10,12 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ProductController {
 
+    private ProductDao productDao;
     private CreateProductRequestValidator createProductRequestValidator;
 
-    public ProductController(CreateProductRequestValidator createProductRequestValidator) {
+    public ProductController(CreateProductRequestValidator createProductRequestValidator, ProductDao productDao) {
         this.createProductRequestValidator = createProductRequestValidator;
+        this.productDao = productDao;
     }
 
     /**
@@ -27,8 +30,9 @@ public class ProductController {
      * Get product
      */
     @GetMapping("/products/{productId}")
-    public ResponseEntity<GetProductResponse> getProduct(@PathVariable String productId) {
-        return new ResponseEntity<>(new GetProductResponse(), HttpStatus.OK);
+    public ResponseEntity<GetProductResponse> getProduct(@PathVariable int productId) {
+        Product product = productDao.get(productId);
+        return new ResponseEntity<>(new GetProductResponse(product), HttpStatus.OK);
     }
 
     /**

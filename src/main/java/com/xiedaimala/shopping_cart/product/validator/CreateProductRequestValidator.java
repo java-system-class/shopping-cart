@@ -1,6 +1,6 @@
 package com.xiedaimala.shopping_cart.product.validator;
 
-import com.xiedaimala.shopping_cart.product.model.CreateProductRequest;
+import com.xiedaimala.shopping_cart.product.model.api.CreateProductRequest;
 import org.springframework.stereotype.Component;
 
 @Component

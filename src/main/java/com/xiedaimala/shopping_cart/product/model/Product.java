@@ -2,23 +2,23 @@ package com.xiedaimala.shopping_cart.product.model;
 
 public class Product {
 
-    private String id;
+    private int id;
     private String name;
     private String description;
-    private long price;
+    private double price;
 
-    public Product(String id, String name, String description, long price) {
+    public Product(int id, String name, String description, double price) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -38,11 +38,11 @@ public class Product {
         this.description = description;
     }
 
-    public long getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 }

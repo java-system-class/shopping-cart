@@ -1,4 +1,6 @@
-package com.xiedaimala.shopping_cart.product.model;
+package com.xiedaimala.shopping_cart.product.model.api;
+
+import com.xiedaimala.shopping_cart.product.model.Product;
 
 public class CreateProductResponse {
 
