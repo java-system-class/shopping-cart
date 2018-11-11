@@ -32,7 +32,12 @@ public class ProductController {
     @GetMapping("/products/{productId}")
     public ResponseEntity<GetProductResponse> getProduct(@PathVariable int productId) {
         Product product = productDao.get(productId);
-        return new ResponseEntity<>(new GetProductResponse(product), HttpStatus.OK);
+
+        if (product == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        } else {
+            return new ResponseEntity<>(new GetProductResponse(product), HttpStatus.OK);
+        }
     }
 
     /**

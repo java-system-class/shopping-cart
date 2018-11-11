@@ -2,6 +2,10 @@ package com.xiedaimala.shopping_cart.product.model;
 
 public class Product {
 
+    /*
+        数据库中表在java代码里的映射和封装
+     */
+
     private int id;
     private String name;
     private String description;
