@@ -2,12 +2,15 @@ package com.xiedaimala.shopping_cart.product.model;
 
 import javax.persistence.*;
 
+/**
+ * 数据 和 对象 的 Mapping
+ */
 @Entity
 @Table(name = "product")
 public class Product {
 
     /*
-        数据库中表在java代码里的映射和封装
+        Product的属性 以及 它在数据表中的映射
      */
 
     @Id
@@ -23,6 +26,9 @@ public class Product {
     @Column(name = "price")
     private double price;
 
+    /**
+     * 默认的构造方法
+     */
     public Product() {
     }
 
