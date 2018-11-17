@@ -1,28 +1,43 @@
 package com.xiedaimala.shopping_cart.product.model;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name = "product")
 public class Product {
 
     /*
         数据库中表在java代码里的映射和封装
      */
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "description")
     private String description;
+
+    @Column(name = "price")
     private double price;
 
-    public Product(int id, String name, String description, double price) {
+    public Product() {
+    }
+
+    public Product(Long id, String name, String description, double price) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.price = price;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
