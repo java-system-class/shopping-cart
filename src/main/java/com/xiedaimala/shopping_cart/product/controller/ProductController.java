@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class ProductController {
 
@@ -23,7 +25,8 @@ public class ProductController {
      */
     @GetMapping("/products")
     public ResponseEntity<ListProductResponse> listProducts() {
-        return new ResponseEntity<>(new ListProductResponse(), HttpStatus.OK);
+        List<Product> products = productDao.findAll();
+        return new ResponseEntity<>(new ListProductResponse(products), HttpStatus.OK);
     }
 
     /**
@@ -48,7 +51,8 @@ public class ProductController {
         // 实现
         boolean validate = createProductRequestValidator.validate(createProductRequest);
 
-        return new ResponseEntity<>(new CreateProductResponse(), HttpStatus.CREATED);
+        Product product = productDao.save(new Product(createProductRequest.getName(), createProductRequest.getDescription(), createProductRequest.getPrice()));
+        return new ResponseEntity<>(new CreateProductResponse(product), HttpStatus.CREATED);
     }
 
     /*
@@ -63,6 +67,7 @@ public class ProductController {
      */
     @PutMapping("/products/{productId}")
     public ResponseEntity<UpdateProductResponse> updateProduct(@PathVariable String productId, @RequestBody UpdateProductRequest updateProductRequest) {
-        return new ResponseEntity<>(new UpdateProductResponse(), HttpStatus.OK);
+        Product product = productDao.save(new Product(updateProductRequest.getName(), updateProductRequest.getDescription(), updateProductRequest.getPrice()));
+        return new ResponseEntity<>(new UpdateProductResponse(product), HttpStatus.OK);
     }
 }

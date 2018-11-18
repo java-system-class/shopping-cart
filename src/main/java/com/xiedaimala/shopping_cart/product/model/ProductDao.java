@@ -15,7 +15,10 @@ import java.util.List;
 public interface ProductDao extends CrudRepository<Product, Long> {
 
     // 根据ORM的命名惯例, 声明操作方法
+
     Product getById(long id);
 
-    List<Product> getAllByName(String name);
+    List<Product> findAll();
+
+    Product save(Product product);
 }

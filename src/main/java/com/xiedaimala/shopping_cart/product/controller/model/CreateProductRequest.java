@@ -6,6 +6,10 @@ public class CreateProductRequest {
     private String description;
     private double price;
 
+    public CreateProductRequest() {
+
+    }
+
     public CreateProductRequest(String name, String description, double price) {
         this.name = name;
         this.description = description;
