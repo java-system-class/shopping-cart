@@ -13,6 +13,12 @@ public class CartItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    public CartItem(User user, Product product, long quantity) {
+        this.user = user;
+        this.product = product;
+        this.quantity = quantity;
+    }
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
@@ -23,4 +29,20 @@ public class CartItem {
 
     @Column(name = "quantity")
     private long quantity;
+
+    public User getUser() {
+        return user;
+    }
+
+    public Product getProduct() {
+        return product;
+    }
+
+    public long getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(long quantity) {
+        this.quantity = quantity;
+    }
 }

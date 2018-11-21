@@ -13,4 +13,6 @@ public interface CartItemDao extends CrudRepository<CartItem, Long> {
     List<CartItem> findAll();
 
     CartItem save(CartItem cartItem);
+
+    void delete(CartItem cartItem);
 }
